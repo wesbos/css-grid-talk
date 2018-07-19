@@ -1,0 +1,3 @@
+# Async + Await
+
+Flow Control in JavaScript is hard! Native Promises in JavaScript have helped immensely, but the syntax still a little callback-y. With Async + Await, we can write synchronous looking code without losing any of the benefits of JavaScript's asynchronous nature. This talk will explore how async + await works, best practices for flow control, and explore several solutions for handling errors.

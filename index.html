@@ -1,0 +1,404 @@
+<!DOCTYPE html><html><head><title>CSS GRID</title><meta charset="utf-8"><script src="slides.js"></script><link href="https://fonts.googleapis.com/css?family=Gravitas+One|Yeseva+One" rel="stylesheet"><link rel="stylesheet" href="https://rawgit.com/wesbos/css-grid/master/assets/style.css"><link rel="stylesheet" href="./prism.css"><link href="styles.css" rel="stylesheet" type="text/css"><style>.grid { display: grid !important; grid-gap: 20px }
+.grid .item { color: black; }
+style { display: inline-grid !important; }</style></head><body><section class="slides layout-regular template-default"><article class="first"><h1><mark>CSS GRID</mark></h1><p class="sub"><small>Cool Eh</small></p></article><article><h1><mark>I&apos;m Wes Bos</mark></h1><p><br></p><p class="sub"><img src="images/canada-flag.png"><img src="images/canada-flag.png"><img src="images/canada-flag.png"><img src="images/canada-flag.png"><img src="images/canada-flag.png"><img src="images/canada-flag.png"></p></article><article><h2 style="font-size:60px;">These slides will be available shortly after this talk <br>I&apos;ll tweet the link out.</h2><img src="images/Twitter_logo_white.png" width="300" style="margin:100px auto"><h2><a href="http://twitter.com/wesbos" target="_blank">@wesbos</a></h2></article><article><a href="https://ES6.io/?utm_source=toolingtalk&amp;utm_medium=link&amp;utm_campaign=talkpromo"><img src="https://ES6.io/images/es6-facebook-share.png" class="wide"></a><a href="https://ES6.io/?utm_source=toolingtalk&amp;utm_medium=link&amp;utm_campaign=talkpromo">ES6.io</a></article><article><a href="https://ReactForBeginners.com/?utm_source=toolingtalk&amp;utm_medium=link&amp;utm_campaign=talkpromo"><img src="https://reactforbeginners.com/images/facebook-share.png" class="wide"></a><a href="https://ReactForBeginners.com/?utm_source=toolingtalk&amp;utm_medium=link&amp;utm_campaign=talkpromo">ReactForBeginners.com</a></article><article><a href="https://LearnNode.com/?utm_source=toolingtalk&amp;utm_medium=link&amp;utm_campaign=talkpromo"><img src="https://learnnode.com/images/NODE/node-facebook-share.jpg" class="wide"></a><a href="https://LearnNode.com/?utm_source=toolingtalk&amp;utm_medium=link&amp;utm_campaign=talkpromo">LearnNode.com</a></article><article><img src="https://pbs.twimg.com/media/DLTTKRoXUAEwuZR.jpg:large" class="high"><a href="https://syntax.fm">Syntax.fm</a></article><article><h1>This talktorial is about CSS Grid</h1></article><article><h1 class="medium">You'll leave with a good idea of what CSS Grid is, when to use it and all of the different pieces.</h1></article><article><h1>CSS Grid</h1><p class="sub">CSS Grid is a brand new layout system in CSS! It's not a framework or library - it's an addition to the language that allows us to quickly create flexible, two dimensional layouts.</p></article><article><h1>Core Ideas</h1><p class="sub">ya grids and ya items</p></article><article><h1>Define a grid</h1><p class="sub">Take an Element and slice it up</p></article><article><img src="http://wes.io/t0jF/content" class="wide"></article><article><h1>Put some items in your grid</h1></article><article><img src="http://wes.io/t1UT/content" class="wide"></article><article><h1>The Code</h1></article><article class="side"><style>.grid1 {
+  display: grid;
+  grid-template-columns: 200px 300px 100px;
+  grid-template-rows: 200px 300px 100px;
+  grid-gap: 20px;
+}
+</style><div class="grid grid1"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div></div></article><article><h1>Let's Break It Down</h1></article><article><h1>Tracks</h1><p class="sub">Columns and Rows</p><p class="sub">Your define a grid with display: grid;</p></article><article class="side"><h2>Slice it up with Columns</h2><style>.grid2 {
+  display: grid;
+  grid-template-columns: 200px 300px 100px;
+}
+</style><div class="grid grid2"><div class="item">1</div><div class="item">2</div><div class="item">3</div></div></article><article class="side"><h2>And Rows</h2><style>.grid3 {
+  display: grid;
+  grid-template-columns: 200px 300px 100px;
+  grid-template-rows: 200px 300px 100px;
+}
+</style><div class="grid grid3"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article><h1>By Default items will span to fit 1 grid spot</h1><p class="sub">more on this soon</p></article><article><h1>Grid Items can be Anything</h1><p class="sub">divs, p, img...</p></article><article class="side"><style>.grid4 {
+  display: grid;
+  grid-template-columns: 200px 300px 100px;
+  grid-template-rows: 200px 300px 100px;
+}
+
+.grid4 p {
+  z-index: 2;
+}
+</style><div class="grid grid4"><div class="item"><p>But will overflow</p></div><div class="item">2</div><div class="item">3</div><div class="item"><p>with a rigid grid size</p></div><div class="item">5</div><div class="item">6</div></div></article><article><h1>Implicit vs Explicit Grids</h1></article><article class="side"><h2>What Happens when we have more items then slots?</h2><style>.grid5 {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px;
+}
+</style><div class="grid grid5"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">💩</div><div class="item"><h2>👆🏻</h2></div></div></article><article><img src="http://wes.io/t14p/content" class="wide"></article><article><h2>Once you run out of defined grid spots, the explicit grid ends and the implicit grid starts.</h2></article><article><h2>I only defined 2 rows here</h2><img src="http://wes.io/t14p/content" class="wide"></article><article><h2>It's Extended 1 more implicit row</h2><img src="http://wes.io/t14p/content" class="wide"></article><article><h1>The Height of the row is defined by content</h1></article><article><img src="http://wes.io/t1f8/content" class="wide"></article><article><h1>Unless you set the height of <em>implicitly created </em> rows.</h1></article><article class="side"><style>.grid6 {
+  display: grid;
+  grid-template-columns: 100px 100px 100px ;
+  grid-template-rows: 100px 100px;
+  grid-auto-rows: 300px;
+}
+</style><div class="grid grid6"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">💩</div><div class="item"><h2>👆🏻</h2></div></div></article><article><h1>You can even have a 100% implicit grid!</h1></article><article class="side"><style>.grid7 {
+  display: grid;
+  grid-auto-rows: 100px;
+}
+</style><div class="grid grid7"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div></article><article><h1>Axis</h1><p>or grid-auto-flow</p></article><article><h1 class="medium">With Flexbox, you can change the Axis left-to-right (row) to top-to-bottom (column)</h1></article><article><h1>CSS Grid doesn't have the ability to change the axis</h1><p class="sub">buttt...</p></article><article><h1 class="medium">Once explicit spots are used up, additional rows are created.</h1><p class="sub">I know Wes, you just showed us</p></article><article><h1 class="medium">We can change this from additional <em>rows</em> to <em>columns</em></h1></article><article class="side"><h2>By default, this grid is 1 columns, additional elements are added as rows.</h2><style>.grid8 {
+  display: grid;
+}
+</style><div class="grid grid8"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div></article><article class="side"><h2>We can switch that so additional elements are added as columns</h2><style>.grid9 {
+  display: grid;
+  grid-auto-flow: column;
+}
+</style><div class="grid grid9"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div></article><article class="side"><style>.grid10 {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 100px 200px;
+  grid-auto-columns: 300px;
+}
+</style><div class="grid grid10"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div></div><h2>1 and 2 are explicit<br>3 and 4 are implicit<br>This can cause horizontal scrolling</h2></article><article><h1>Sizing Tracks</h1><p class="sub">A Few ways</p></article><article><p>We can specify the width of columns and the height of rows with any existing CSS Unit</p></article><article class="side"><style>.grid11 {
+  display: grid;
+  grid-template-columns: 50px 10ch 2rem 1in;
+  grid-template-rows: 10vh 100px;
+}
+</style><div class="grid grid11"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article><h1>Percentages</h1><p class="sub">Fine when used in combination or auto</p></article><article class="side"><style>.grid12 {
+  display: grid;
+  width: 100%;
+  border:10px solid #00ff9b;
+  grid-template-columns: 80% auto;
+}
+</style><div class="grid grid12"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article><h1>Percentages</h1></article><article><h1>Not for adding up to 100%</h1><p>Remember the days before border-box?</p></article><article class="side"><style>.grid13 {
+  display: grid;
+  grid-gap: 20px;
+  border:10px solid #00ff9b;
+  grid-template-columns: 80% 20%;
+}
+</style><div class="grid grid13"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article><h1>80% + 20% + 20px = ???</h1><p>Remember the days before border-box?</p></article><article><h1>Solution: Fractional Units</h1><p>I like to think of them as "Free Space" units</p></article><article class="side"><style>.grid14 {
+  display: grid;
+  grid-gap: 20px;
+  width: 1000px;
+  border:10px solid #00ff9b;
+  grid-template-columns: 8fr 2fr;
+}
+</style><div class="grid grid14"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article><h2 class="skew">The Browser will first dedicate space towards the things that need a specific amount room - existing content, fixed sized tracks and grid-gap. Then, the remaining space will be divided up in proportion - much like flex-grow.</h2></article><article class="side"><style>.grid15 {
+  display: grid;
+  width: 100%;
+  grid-gap: 50px;
+  grid-template-columns: 2fr 500px 1fr;
+}
+</style><div class="grid grid15"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article class="side"><style>.grid16 {
+  display: grid;
+  width: 100%;
+  width: 500px;
+  grid-gap: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid16 .item2 {
+  width: 300px;
+}
+</style><div class="grid grid16"><div class="item">1</div><div class="item item2">I have a fixed width</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div></div></article><article><h1>The <code>repeat()</code> Function</h1></article><article><h1>repeat() allows us to, well, repeat CSS Grid Tracks</h1></article><article class="side"><style>.grid17 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+</style><div class="grid grid17"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article><h1>Can be used multiple times</h1></article><article class="side"><style>.grid18 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) repeat(2, 3fr);
+}
+</style><div class="grid grid18"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="side"><h2>And Mixed With Other Units</h2><style>.grid19 {
+  display: grid;
+  grid-template-columns: 200px repeat(3, 1fr) 200px;
+}
+</style><div class="grid grid19"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article><h1>Sizing Items</h1><p class="sub">So far everything has been just about the containing Grid</p></article><article class="side"><h2>Sizing an item expands that track</h2><style>.grid20 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid20 .item:nth-child(3) {
+  width: 300px;
+  background: #00ff9b;
+}
+
+</style><div class="grid grid20"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="side"><h2>Or Spills out in rigid tracks</h2><style>.grid21 {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+}
+.grid21 .item:nth-child(3) {
+  width: 600px;
+  background: #00ff9b;
+}
+</style><div class="grid grid21"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article><h1>In most cases, the best way to size grid items is to span multiple grid spots.</h1></article><article class="side"><h2>At it's simplest you just take up more than one spot</h2><style>.grid22 {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+}
+.grid22 .item:nth-child(3) {
+  grid-column: span 3;
+  background: #00ff9b;
+}
+</style><div class="grid grid22"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="side"><h2>If an item is too large, it will go onto the next track, leaving spaces behind</h2><style>.grid23 {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+}
+.grid23 .item:nth-child(3) {
+  grid-column: span 4;
+  background: #00ff9b;
+}
+</style><div class="grid grid23"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="side"><h2><code>grid-auto-flow: dense;</code> fixes this</h2><style>.grid24 {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(5, 100px);
+}
+.grid24 .item:nth-child(3) {
+  grid-column: span 4;
+  background: #00ff9b;
+}
+</style><div class="grid grid24"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="section"><h1>Line Numbers</h1><p class="sub">Quick Aside</p></article><article class="section"><h2>Tracks are numbered by thir gutters, not the tracks</h2><img src="http://wes.io/t4Kv/content" class="wide"></article><article class="side"><h2>We can also tell an item where to start and/or stop</h2><style>.grid25 {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(5, 100px);
+}
+.grid25 .item:nth-child(3) {
+  grid-column: 2 / 5;
+  background: #00ff9b;
+}
+</style><div class="grid grid25"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="side"><h2><code>-1</code> spans to the end of the explicit grid</h2><style>.grid26 {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(7, 100px);
+}
+.grid26 .item:nth-child(3) {
+  grid-row: 4 / -1;
+  background: #00ff9b;
+}
+</style><div class="grid grid26"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div><div class="item">21</div><div class="item">22</div><div class="item">23</div><div class="item">24</div><div class="item">25</div><div class="item">26</div><div class="item">27</div><div class="item">28</div><div class="item">29</div><div class="item">30</div></div></article><article class="side"><h2>Handy to span the entire top of a grid</h2><style>.grid27 {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(7, 100px);
+}
+.grid27 .header {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background: #00ff9b;
+}
+</style><div class="grid grid27"><div class="item header">Header!</div><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div></div></article><article class="side"><h2>Specify where an item ends</h2><style>.grid28 {
+  display: grid;
+  grid-template-columns: repeat(5, 100px);
+  grid-template-rows: repeat(7, 100px);
+}
+.grid28 .item:nth-child(3) {
+  grid-column-end: 5;
+  grid-column-start: span 3;
+  grid-row-end: -1;
+  grid-row-start: span 5;
+  background: #00ff9b;
+}
+</style><div class="grid grid28"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div></div></article><article><h1>auto-fit and auto-fill</h1></article><article><h2>Let's say we have a grid with a flexible width and 20px of gap. How many 100px tracks can we fit?</h2></article><article class="side"><h2>We can fit 6 and have a bit of extra space. Now resize it!</h2><style>.grid29 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  border: 10px solid red;
+  overflow: auto;
+  resize: horizontal;
+}
+</style><div class="grid grid29"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div></div></article><article><h2>auto-fit won't create tracks out of empty space</h2><img src="http://wes.io/t2oA/content" class="wide"><h2>auto-fill does</h2><img src="http://wes.io/t2wZ/content" class="wide"></article><article class="section"><h1>Why?</h1><p class="sub">enter <code>minmax()</code></p></article><article class="section"><h1>minmax()</h1><p class="sub">guess what it does</p></article><article class="section"><h1>minmax()</h1><p class="sub">takes 2 arguments, a min and a max.</p></article><article class="section"><h1>minmax()</h1><p class="sub">Works with <code>auto-fit</code> and <code>auto-fill</code></p></article><article class="section"><h2 style="font-size: 95px"><code>grid-templat-columns:<br>repeat(auto-fill, minmax(350px, 1fr))</code></h2></article><article class="side"><style style="grid-column: 1 / -1">.grid30 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  border: 10px solid red;
+  overflow: auto;
+  resize: horizontal;
+}
+</style><div class="grid grid30"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div></div></article><article class="section"><h1>Responsive without media queries</h1></article><article class="section"><h1>Container Aware - not based on viewport</h1></article><article class="section"><h1>Handy as Heck</h1><p class="sub">One of my most used parts of grid</p></article><article><h1>Grid Template Areas</h1></article><article><h2>Another way to define where items go is the create areas on your grid and name them.</h2></article><article><img src="http://wes.io/t4kr/content" class="wide"></article><article><img src="http://wes.io/t3DW/content" class="high"></article><article class="side"><style>.grid31 {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+  grid-template-areas:
+      'head head head head'
+      'side side main main'
+      'ads  ads  main main'
+      'foot foot foot foot';
+}
+.header {  grid-area: head; }
+.main {  grid-area: main; }
+.ads {  grid-area: ads; }
+.side {  grid-area: side; }
+.foot {  grid-area: foot; }
+</style><div class="grid grid31"><div class="item header">Header</div><div class="item ads">Ads!</div><div class="item main">Main Content</div><div class="item side">Sidebar</div><div class="item foot">Footer!</div></div></article><article class="side"><style>.grid32 {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+  grid-template-areas:
+      'head head head head'
+      'side main main main'
+      'ads  main  main main'
+      'foot foot foot foot';
+}
+.header {  grid-area: head; }
+.main {  grid-area: main; }
+.ads {  grid-area: ads; }
+.side {  grid-area: side; }
+.foot {  grid-area: foot; }
+</style><div class="grid grid32"><div class="item header">Header</div><div class="item ads">Ads!</div><div class="item main">Main Content</div><div class="item side">Sidebar</div><div class="item foot">Footer!</div></div></article><article class="side"><style>.grid33 {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+  grid-template-areas:
+      'head head head head'
+      'main main main main'
+      'ads  side side side'
+      'foot foot foot foot';
+}
+.header {  grid-area: head; }
+.main {  grid-area: main; }
+.ads {  grid-area: ads; }
+.side {  grid-area: side; }
+.foot {  grid-area: foot; }
+</style><div class="grid grid33"><div class="item header">Header</div><div class="item ads">Ads!</div><div class="item main">Main Content</div><div class="item side">Sidebar</div><div class="item foot">Footer!</div></div></article><article class="section"><h1>Named Lines</h1><p class="sub">When you name areas, you get named lines for free</p></article><article class="side"><style>.grid34 {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-auto-rows: 200px;
+  grid-template-areas:
+      'gutter-left content content gutter-right'
+      'gutter-left content content gutter-right'
+      'gutter-left content content gutter-right'
+      'footer footer footer footer '
+      ;
+}
+.grid34 .item:nth-child(1) {
+  grid-column: content-start / content-end;
+  grid-row: content-start / content-end;
+  background: green;
+}
+</style><div class="grid grid34"><div class="item">01</div><div class="item">02</div><div class="item">03</div></div></article><article><h1>You can also create your own names</h1></article><article class="side"><style>.grid35 {
+  display: grid;
+  grid-template-columns:
+    [sidebar-start site-left]
+    1fr
+    [sidebar-end content-start]
+    500px
+    [content-end]
+    1fr
+    [site-right];
+  grid-template-rows:
+    [content-top]
+    repeat(10, auto)
+    [content-bottom];
+}
+.grid35 .item:nth-child(3) {
+  background: slateblue;
+  grid-column: content-start;
+  grid-row: content-top / content-bottom;
+}
+</style><div class="grid grid35"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div><div class="item">9</div><div class="item">10</div><div class="item">11</div><div class="item">12</div><div class="item">13</div><div class="item">14</div><div class="item">15</div><div class="item">16</div><div class="item">17</div><div class="item">18</div><div class="item">19</div><div class="item">20</div></div></article><article class="section"><h1>Alignment and Centering</h1><p class="sub">I bet you have a funny joke about centering things in CSS</p></article><article><h1>CSS Grid is amazing for just aligning elements</h1></article><article><h1>Six Alignment Properties</h1></article><article><h2><code>justify-*</code> <br> for rows axis — Horizontal</h2><h2><code>align-*</code> <br> for column axis — Vertical</h2></article><article class="side"><style>.grid36 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+}
+</style><div class="alignment grid grid36"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article><h1>justify-content</h1><p>How to align the tracks</p></article><article class="side"><h2><code>justify-content: center;</code></h2><style>.grid37 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: center;
+}
+</style><div class="alignment grid grid37"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-content: start;</code></h2><style>.grid38 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: start;
+}
+</style><div class="alignment grid grid38"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-content: end;</code></h2><style>.grid39 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: end;
+}
+</style><div class="alignment grid grid39"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-content: space-between;</code></h2><style>.grid40 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: space-between;
+}
+</style><div class="alignment grid grid40"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-content: space-around;</code></h2><style>.grid41 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: space-around;
+}
+</style><div class="alignment grid grid41"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article><h1>justify-items</h1><p class="sub">How to align the elements inside the tracks</p></article><article class="side"><h2><code>justify-items: stretch; (default)</code></h2><style>.grid42 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-items: stretch;
+}
+</style><div class="alignment grid grid42"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-items: center;</code></h2><style>.grid43 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-items: center;
+}
+</style><div class="alignment grid grid43"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-items: start;</code></h2><style>.grid44 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-items: start;
+}
+</style><div class="alignment grid grid44"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-items: end;</code></h2><style>.grid45 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-items: end;
+}
+</style><div class="alignment grid grid45"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>justify-self: end;<br>(overrides justify-items on a single element)</code></h2><style>.grid46 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-items: start;
+}
+.grid46 .itm:nth-child(2){
+  background: red;
+  justify-self: end
+}
+</style><div class="alignment grid grid46"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article><h1>align-content</h1><p class="sub">remember <code>algin-*</code> is for vertical</p></article><article class="side"><h2><code>align-content: stretch; <br> (default)</code></h2><style>.grid47 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-content: stretch;
+}
+</style><div class="alignment grid grid47"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-content: center;</code></h2><style>.grid48 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-content: center;
+}
+</style><div class="alignment grid grid48"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-content: start;</code></h2><style>.grid49 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-content: start;
+}
+</style><div class="alignment grid grid49"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-content: end;</code></h2><style>.grid50 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-content: end;
+}
+</style><div class="alignment grid grid50"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-content: space-around;</code></h2><style>.grid51 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-content: space-around;
+}
+</style><div class="alignment grid grid51"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-content: space-between;</code></h2><style>.grid52 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-content: space-between;
+}
+</style><div class="alignment grid grid52"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article><h1>align-items</h1><p class="sub">For aligning content inside of the tracks</p></article><article class="side"><h2><code>align-items: stretch;</code></h2><style>.grid53 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-items: stretch;
+}
+</style><div class="alignment grid grid53"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-items: center;</code></h2><style>.grid54 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-items: center;
+}
+</style><div class="alignment grid grid54"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-items: start;</code></h2><style>.grid55 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-items: start;
+}
+</style><div class="alignment grid grid55"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-items: end;</code></h2><style>.grid56 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-items: end;
+}
+</style><div class="alignment grid grid56"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="side"><h2><code>align-items: baseline;</code></h2><style>.grid57 {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-items: baseline;
+}
+.grid57 .itm:nth-child(3) {
+  background: red;
+  font-size: 100px;
+}
+
+</style><div class="alignment grid grid57"><div class="itm">1</div><div class="itm">2</div><div class="itm">3</div><div class="itm">4</div><div class="itm">5</div><div class="itm">6</div></div></article><article class="section"><h1>Whew!</h1><p class="sub">That is a lot!</p></article><article class="section"><h1>Still So much more</h1><p class="sub">I cover it in my free course at CSSGrid.io</p></article><article class="section"><h1>CSS Grid<br><small>VS</small><br>Flexbox</h1></article><article class="section"><h1>Real Website use cases</h1></article><article class="section"><h1>Component Examples</h1></article><article class="section"><h1>Dev Tools</h1></article><article class="section"><h1>Mobile / MQ</h1></article><article class="section"><h1>Re-ordering Elements</h1></article><article class="section"><h1>Overlapping Elements</h1></article><article class="section"><h1>Dealing with Unkown Number of items</h1></article><article class="section"><h1>Dense block-fitting Grid</h1></article><article class="section"><h1>Full Bleed Page Layout</h1></article><article class="section"><h1>CSS Grid is huge</h1></article><article class="section"><h1>CSS Grid is the future!</h1></article><article class="section"><h1>It's well worth learning</h1></article><article class="section"><h1>Thanks!</h1><p class="sub">Questions?</p></article></section><script src="prism.js" data-manual></script><script src="./custom-highlight.js"></script></body></html>

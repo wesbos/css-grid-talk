@@ -1,0 +1,24 @@
+{
+  "name": "css-grid-talk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "slides.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-stylus": "^2.7.0",
+    "request": "^2.87.0"
+  }
+}

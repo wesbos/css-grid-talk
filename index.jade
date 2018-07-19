@@ -1,0 +1,1238 @@
+doctype html
+html
+  head
+      title CSS GRID
+      meta(charset='utf-8')
+      script(src='slides.js')
+      link(href="https://fonts.googleapis.com/css?family=Gravitas+One|Yeseva+One" rel="stylesheet")
+      link(rel="stylesheet", href="https://rawgit.com/wesbos/css-grid/master/assets/style.css")
+      link(rel="stylesheet", href="./prism.css")
+
+      link(href='styles.css'  rel='stylesheet' type='text/css')
+      style.
+        .grid { display: grid !important; grid-gap: 20px }
+        .grid .item { color: black; }
+        style { display: inline-grid !important; }
+    body
+      section.slides.layout-regular.template-default
+        article.first
+          h1: mark CSS GRID
+          p.sub: small Cool Eh
+
+        article
+          h1: mark I&apos;m Wes Bos
+          p: br
+          p.sub
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+            img(src="images/canada-flag.png")
+
+        article
+          h2(style="font-size:60px;") These slides will be available shortly after this talk <br>I&apos;ll tweet the link out.
+          img(src='images/Twitter_logo_white.png', width='300' style="margin:100px auto")
+
+          h2
+            a(href='http://twitter.com/wesbos', target='_blank') @wesbos
+
+        article
+          a(href='https://ES6.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+            img.wide(src='https://ES6.io/images/es6-facebook-share.png')
+          a(href='https://ES6.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') ES6.io
+
+
+        article
+          a(href='https://ReactForBeginners.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+            img.wide(src='https://reactforbeginners.com/images/facebook-share.png')
+          a(href='https://ReactForBeginners.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') ReactForBeginners.com
+
+        article
+          a(href='https://LearnNode.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+            img.wide(src='https://learnnode.com/images/NODE/node-facebook-share.jpg')
+          a(href='https://LearnNode.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') LearnNode.com
+
+        article
+          img.high(src="https://pbs.twimg.com/media/DLTTKRoXUAEwuZR.jpg:large")
+          a(href='https://syntax.fm') Syntax.fm
+
+        article
+          h1 This talktorial is about CSS Grid
+
+        article
+          h1.medium You'll leave with a good idea of what CSS Grid is, when to use it and all of the different pieces.
+
+        article
+          h1 CSS Grid
+          p.sub CSS Grid is a brand new layout system in CSS! It's not a framework or library - it's an addition to the language that allows us to quickly create flexible, two dimensional layouts.
+
+        article
+          h1 Core Ideas
+          p.sub ya grids and ya items
+
+        article
+          h1 Define a grid
+          p.sub Take an Element and slice it up
+
+        article
+          img.wide(src="http://wes.io/t0jF/content")
+
+        article
+          h1 Put some items in your grid
+
+        article
+          img.wide(src="http://wes.io/t1UT/content")
+
+        article
+          h1 The Code
+
+        article.side
+          style.
+            .grid1 {
+              display: grid;
+              grid-template-columns: 200px 300px 100px;
+              grid-template-rows: 200px 300px 100px;
+              grid-gap: 20px;
+            }
+
+          .grid.grid1
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+            .item 7
+            .item 8
+            .item 9
+
+        article
+          h1 Let's Break It Down
+
+        article
+          h1 Tracks
+          p.sub Columns and Rows
+          p.sub Your define a grid with display: grid;
+
+        article.side
+          h2 Slice it up with Columns
+          style.
+            .grid2 {
+              display: grid;
+              grid-template-columns: 200px 300px 100px;
+            }
+
+          .grid.grid2
+            .item 1
+            .item 2
+            .item 3
+        article.side
+          h2 And Rows
+          style.
+            .grid3 {
+              display: grid;
+              grid-template-columns: 200px 300px 100px;
+              grid-template-rows: 200px 300px 100px;
+            }
+
+          .grid.grid3
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article
+          h1 By Default items will span to fit 1 grid spot
+          p.sub more on this soon
+
+        article
+          h1 Grid Items can be Anything
+          p.sub divs, p, img...
+
+        article.side
+          style.
+            .grid4 {
+              display: grid;
+              grid-template-columns: 200px 300px 100px;
+              grid-template-rows: 200px 300px 100px;
+            }
+
+            .grid4 p {
+              z-index: 2;
+            }
+
+          .grid.grid4
+            .item
+              p But will overflow
+            .item 2
+            .item 3
+            .item
+              p with a rigid grid size
+            .item 5
+            .item 6
+
+        article
+          h1 Implicit vs Explicit Grids
+
+        article.side
+          h2 What Happens when we have more items then slots?
+          style.
+            .grid5 {
+              display: grid;
+              grid-template-columns: 100px 100px 100px;
+              grid-template-rows: 100px 100px;
+            }
+
+          .grid.grid5
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+            .item 💩
+            .item
+              h2 👆🏻
+        article
+          img.wide(src="http://wes.io/t14p/content")
+
+        article
+          h2 Once you run out of defined grid spots, the explicit grid ends and the implicit grid starts.
+
+        article
+          h2 I only defined 2 rows here
+          img.wide(src="http://wes.io/t14p/content")
+
+        article
+          h2 It's Extended 1 more implicit row
+          img.wide(src="http://wes.io/t14p/content")
+
+        article
+          h1 The Height of the row is defined by content
+
+        article
+          img.wide(src="http://wes.io/t1f8/content")
+
+        article
+          h1 Unless you set the height of <em>implicitly created </em> rows.
+
+        article.side
+          style.
+            .grid6 {
+              display: grid;
+              grid-template-columns: 100px 100px 100px ;
+              grid-template-rows: 100px 100px;
+              grid-auto-rows: 300px;
+            }
+
+          .grid.grid6
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+            .item 💩
+            .item
+              h2 👆🏻
+
+
+        article
+          h1 You can even have a 100% implicit grid!
+        article.side
+          style.
+            .grid7 {
+              display: grid;
+              grid-auto-rows: 100px;
+            }
+
+          .grid.grid7
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+
+        article
+          h1 Axis
+          p or grid-auto-flow
+
+        article
+          h1.medium With Flexbox, you can change the Axis left-to-right (row) to top-to-bottom (column)
+
+        article
+          h1 CSS Grid doesn't have the ability to change the axis
+          p.sub buttt...
+
+        article
+          h1.medium Once explicit spots are used up, additional rows are created.
+          p.sub I know Wes, you just showed us
+
+        article
+          h1.medium We can change this from additional <em>rows</em> to <em>columns</em>
+
+        article.side
+          h2 By default, this grid is 1 columns, additional elements are added as rows.
+          style.
+            .grid8 {
+              display: grid;
+            }
+
+          .grid.grid8
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+
+        article.side
+          h2 We can switch that so additional elements are added as columns
+          style.
+            .grid9 {
+              display: grid;
+              grid-auto-flow: column;
+            }
+
+          .grid.grid9
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+
+
+        article.side
+          style.
+            .grid10 {
+              display: grid;
+              grid-auto-flow: column;
+              grid-template-columns: 100px 200px;
+              grid-auto-columns: 300px;
+            }
+
+          .grid.grid10
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+
+          h2 1 and 2 are explicit<br>3 and 4 are implicit<br>This can cause horizontal scrolling
+        article
+          h1 Sizing Tracks
+          p.sub A Few ways
+
+        article
+          p We can specify the width of columns and the height of rows with any existing CSS Unit
+
+        article.side
+          style.
+            .grid11 {
+              display: grid;
+              grid-template-columns: 50px 10ch 2rem 1in;
+              grid-template-rows: 10vh 100px;
+            }
+
+          .grid.grid11
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article
+          h1 Percentages
+          p.sub Fine when used in combination or auto
+
+        article.side
+          style.
+            .grid12 {
+              display: grid;
+              width: 100%;
+              border:10px solid #00ff9b;
+              grid-template-columns: 80% auto;
+            }
+
+          .grid.grid12
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article
+          h1 Percentages
+
+        article
+          h1 Not for adding up to 100%
+          p Remember the days before border-box?
+
+        article.side
+          style.
+            .grid13 {
+              display: grid;
+              grid-gap: 20px;
+              border:10px solid #00ff9b;
+              grid-template-columns: 80% 20%;
+            }
+
+          .grid.grid13
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article
+          h1 80% + 20% + 20px = ???
+          p Remember the days before border-box?
+
+        article
+          h1 Solution: Fractional Units
+          p I like to think of them as "Free Space" units
+
+        article.side
+          style.
+            .grid14 {
+              display: grid;
+              grid-gap: 20px;
+              width: 1000px;
+              border:10px solid #00ff9b;
+              grid-template-columns: 8fr 2fr;
+            }
+
+          .grid.grid14
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article
+          h2.skew The Browser will first dedicate space towards the things that need a specific amount room - existing content, fixed sized tracks and grid-gap. Then, the remaining space will be divided up in proportion - much like flex-grow.
+
+        article.side
+          style.
+            .grid15 {
+              display: grid;
+              width: 100%;
+              grid-gap: 50px;
+              grid-template-columns: 2fr 500px 1fr;
+            }
+
+          .grid.grid15
+            .item 1
+            .item 2
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article.side
+          style.
+            .grid16 {
+              display: grid;
+              width: 100%;
+              width: 500px;
+              grid-gap: 50px;
+              grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .grid16 .item2 {
+              width: 300px;
+            }
+
+          .grid.grid16
+            .item 1
+            .item.item2 I have a fixed width
+            .item 3
+            .item 4
+            .item 5
+            .item 6
+
+        article
+          h1 The <code>repeat()</code> Function
+
+        article
+          h1 repeat() allows us to, well, repeat CSS Grid Tracks
+
+        article.side
+          style.
+            .grid17 {
+              display: grid;
+              grid-template-columns: repeat(5, 1fr);
+            }
+
+          .grid.grid17
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        article
+          h1 Can be used multiple times
+
+        article.side
+          style.
+            .grid18 {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr) repeat(2, 3fr);
+            }
+
+          .grid.grid18
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+
+        article.side
+          h2 And Mixed With Other Units
+          style.
+            .grid19 {
+              display: grid;
+              grid-template-columns: 200px repeat(3, 1fr) 200px;
+            }
+
+          .grid.grid19
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        article
+          h1 Sizing Items
+          p.sub So far everything has been just about the containing Grid
+
+        article.side
+          h2 Sizing an item expands that track
+          style.
+            .grid20 {
+              display: grid;
+              grid-template-columns: repeat(5, 1fr);
+            }
+            .grid20 .item:nth-child(3) {
+              width: 300px;
+              background: #00ff9b;
+            }
+
+
+          .grid.grid20
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        article.side
+          h2 Or Spills out in rigid tracks
+          style.
+            .grid21 {
+              display: grid;
+              grid-template-columns: repeat(5, 100px);
+            }
+            .grid21 .item:nth-child(3) {
+              width: 600px;
+              background: #00ff9b;
+            }
+
+          .grid.grid21
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        article
+          h1 In most cases, the best way to size grid items is to span multiple grid spots.
+
+
+        article.side
+          h2 At it's simplest you just take up more than one spot
+          style.
+            .grid22 {
+              display: grid;
+              grid-template-columns: repeat(5, 100px);
+            }
+            .grid22 .item:nth-child(3) {
+              grid-column: span 3;
+              background: #00ff9b;
+            }
+
+          .grid.grid22
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        - var gridNum = 22;
+        - gridNum++
+        article.side
+          h2 If an item is too large, it will go onto the next track, leaving spaces behind
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(5, 100px);
+            }
+            .grid#{gridNum} .item:nth-child(3) {
+              grid-column: span 4;
+              background: #00ff9b;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        - gridNum++
+        article.side
+          h2 <code>grid-auto-flow: dense;</code> fixes this
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-auto-flow: dense;
+              grid-template-columns: repeat(5, 100px);
+            }
+            .grid#{gridNum} .item:nth-child(3) {
+              grid-column: span 4;
+              background: #00ff9b;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        - gridNum++
+
+        article.section
+          h1 Line Numbers
+          p.sub Quick Aside
+
+        article.section
+          h2 Tracks are numbered by thir gutters, not the tracks
+          img.wide(src="http://wes.io/t4Kv/content")
+
+        article.side
+          h2 We can also tell an item where to start and/or stop
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-auto-flow: dense;
+              grid-template-columns: repeat(5, 100px);
+            }
+            .grid#{gridNum} .item:nth-child(3) {
+              grid-column: 2 / 5;
+              background: #00ff9b;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        - gridNum++
+
+        article.side
+          h2 <code>-1</code> spans to the end of the explicit grid
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-auto-flow: dense;
+              grid-template-columns: repeat(5, 100px);
+              grid-template-rows: repeat(7, 100px);
+            }
+            .grid#{gridNum} .item:nth-child(3) {
+              grid-row: 4 / -1;
+              background: #00ff9b;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 30}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        - gridNum++;
+        article.side
+          h2 Handy to span the entire top of a grid
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(5, 100px);
+              grid-template-rows: repeat(7, 100px);
+            }
+            .grid#{gridNum} .header {
+              grid-column: 1 / -1;
+              grid-row: 1;
+              background: #00ff9b;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 20}, (x, i) => i + 1)
+            .item.header Header!
+            - each i in l
+              .item #{i}
+
+        - gridNum++;
+        article.side
+          h2 Specify where an item ends
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(5, 100px);
+              grid-template-rows: repeat(7, 100px);
+            }
+            .grid#{gridNum} .item:nth-child(3) {
+              grid-column-end: 5;
+              grid-column-start: span 3;
+              grid-row-end: -1;
+              grid-row-start: span 5;
+              background: #00ff9b;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 20}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+
+        article
+          h1 auto-fit and auto-fill
+
+        article
+          h2 Let's say we have a grid with a flexible width and 20px of gap. How many 100px tracks can we fit?
+
+        - gridNum++;
+        article.side
+          h2 We can fit 6 and have a bit of extra space. Now resize it!
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, 100px);
+              border: 10px solid red;
+              overflow: auto;
+              resize: horizontal;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 20}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        article
+          h2 auto-fit won't create tracks out of empty space
+          img.wide(src="http://wes.io/t2oA/content")
+          h2 auto-fill does
+          img.wide(src="http://wes.io/t2wZ/content")
+
+        article.section
+          h1 Why?
+          p.sub enter <code>minmax()</code>
+
+        article.section
+          h1 minmax()
+          p.sub guess what it does
+
+        article.section
+          h1 minmax()
+          p.sub takes 2 arguments, a min and a max.
+
+        article.section
+          h1 minmax()
+          p.sub Works with <code>auto-fit</code> and <code>auto-fill</code>
+
+        article.section
+          h2(style="font-size: 95px"): code grid-templat-columns:<br>repeat(auto-fill, minmax(350px, 1fr))
+
+
+        article.side
+          - gridNum++;
+          style(style="grid-column: 1 / -1").
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+              border: 10px solid red;
+              overflow: auto;
+              resize: horizontal;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 5}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+
+        article.section
+          h1 Responsive without media queries
+
+        article.section
+          h1 Container Aware - not based on viewport
+
+        article.section
+          h1 Handy as Heck
+          p.sub One of my most used parts of grid
+
+        article
+          h1 Grid Template Areas
+
+        article
+          h2 Another way to define where items go is the create areas on your grid and name them.
+
+        article
+          img.wide(src="http://wes.io/t4kr/content")
+        article
+          img.high(src="http://wes.io/t3DW/content")
+
+        article.side
+          - gridNum++;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(4, 200px);
+              grid-auto-rows: 200px;
+              grid-template-areas:
+                  'head head head head'
+                  'side side main main'
+                  'ads  ads  main main'
+                  'foot foot foot foot';
+            }
+            .header {  grid-area: head; }
+            .main {  grid-area: main; }
+            .ads {  grid-area: ads; }
+            .side {  grid-area: side; }
+            .foot {  grid-area: foot; }
+
+          .grid(class="grid#{gridNum}")
+            .item.header Header
+            .item.ads Ads!
+            .item.main Main Content
+            .item.side Sidebar
+            .item.foot Footer!
+
+        article.side
+          - gridNum++;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(4, 200px);
+              grid-auto-rows: 200px;
+              grid-template-areas:
+                  'head head head head'
+                  'side main main main'
+                  'ads  main  main main'
+                  'foot foot foot foot';
+            }
+            .header {  grid-area: head; }
+            .main {  grid-area: main; }
+            .ads {  grid-area: ads; }
+            .side {  grid-area: side; }
+            .foot {  grid-area: foot; }
+
+          .grid(class="grid#{gridNum}")
+            .item.header Header
+            .item.ads Ads!
+            .item.main Main Content
+            .item.side Sidebar
+            .item.foot Footer!
+
+        article.side
+          - gridNum++;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(4, 200px);
+              grid-auto-rows: 200px;
+              grid-template-areas:
+                  'head head head head'
+                  'main main main main'
+                  'ads  side side side'
+                  'foot foot foot foot';
+            }
+            .header {  grid-area: head; }
+            .main {  grid-area: main; }
+            .ads {  grid-area: ads; }
+            .side {  grid-area: side; }
+            .foot {  grid-area: foot; }
+
+          .grid(class="grid#{gridNum}")
+            .item.header Header
+            .item.ads Ads!
+            .item.main Main Content
+            .item.side Sidebar
+            .item.foot Footer!
+
+        article.section
+          h1 Named Lines
+          p.sub When you name areas, you get named lines for free
+
+        article.side
+          - gridNum++;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(4, 200px);
+              grid-auto-rows: 200px;
+              grid-template-areas:
+                  'gutter-left content content gutter-right'
+                  'gutter-left content content gutter-right'
+                  'gutter-left content content gutter-right'
+                  'footer footer footer footer '
+                  ;
+            }
+            .grid#{gridNum} .item:nth-child(1) {
+              grid-column: content-start / content-end;
+              grid-row: content-start / content-end;
+              background: green;
+            }
+
+          .grid(class="grid#{gridNum}")
+            .item 01
+            .item 02
+            .item 03
+
+        article
+          h1 You can also create your own names
+
+        article.side
+          - gridNum++;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns:
+                [sidebar-start site-left]
+                1fr
+                [sidebar-end content-start]
+                500px
+                [content-end]
+                1fr
+                [site-right];
+              grid-template-rows:
+                [content-top]
+                repeat(10, auto)
+                [content-bottom];
+            }
+            .grid#{gridNum} .item:nth-child(3) {
+              background: slateblue;
+              grid-column: content-start;
+              grid-row: content-top / content-bottom;
+            }
+
+          .grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 20}, (x, i) => i + 1)
+            - each i in l
+              .item #{i}
+
+        article.section
+          h1 Alignment and Centering
+          p.sub I bet you have a funny joke about centering things in CSS
+
+        article
+          h1 CSS Grid is amazing for just aligning elements
+
+        article
+          h1 Six Alignment Properties
+
+        article
+          h2 <code>justify-*</code> <br> for rows axis — Horizontal
+          h2 <code>align-*</code> <br> for column axis — Vertical
+
+        article.side
+          - gridNum++;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article
+          h1 justify-content
+          p How to align the tracks
+        article.side
+          - gridNum++;
+          h2: code justify-content: center;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-content: center;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-content: start;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-content: start;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-content: end;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-content: end;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-content: space-between;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-content: space-between;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-content: space-around;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-content: space-around;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article
+          h1 justify-items
+          p.sub How to align the elements inside the tracks
+
+        article.side
+          - gridNum++;
+          h2: code justify-items: stretch; (default)
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-items: stretch;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-items: center;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-items: center;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-items: start;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-items: start;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-items: end;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-items: end;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.side
+          - gridNum++;
+          h2: code justify-self: end;<br>(overrides justify-items on a single element)
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              justify-items: start;
+            }
+            .grid#{gridNum} .itm:nth-child(2){
+              background: red;
+              justify-self: end
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article
+          h1 align-content
+          p.sub remember <code>algin-*</code> is for vertical
+
+        article.side
+          - gridNum++;
+          h2: code align-content: stretch; <br> (default)
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              align-content: stretch;
+            }
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        - for centering in ['center', 'start', 'end', 'space-around', 'space-between']
+          article.side
+            - gridNum++;
+            h2: code align-content: #{centering};
+            style.
+              .grid#{gridNum} {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                align-content: #{centering};
+              }
+
+            .alignment.grid(class="grid#{gridNum}")
+              - var l = Array.from({ length: 6}, (x, i) => i + 1)
+              - each i in l
+                .itm #{i}
+
+        article
+          h1 align-items
+          p.sub For aligning content inside of the tracks
+
+        - for centering in ['stretch', 'center', 'start', 'end']
+          article.side
+            - gridNum++;
+            h2: code align-items: #{centering};
+            style.
+              .grid#{gridNum} {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                align-items: #{centering};
+              }
+
+            .alignment.grid(class="grid#{gridNum}")
+              - var l = Array.from({ length: 6}, (x, i) => i + 1)
+              - each i in l
+                .itm #{i}
+        article.side
+          - gridNum++;
+          h2: code align-items: baseline;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              align-items: baseline;
+            }
+            .grid#{gridNum} .itm:nth-child(3) {
+              background: red;
+              font-size: 100px;
+            }
+
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
+        article.section
+          h1 Whew!
+          p.sub That is a lot!
+
+        article.section
+          h1 Still So much more
+          p.sub I cover it in my free course at CSSGrid.io
+
+        article.section
+          h1
+            | CSS Grid
+            br
+            small VS
+            br
+            | Flexbox
+
+        article.section
+          h1 Real Website use cases
+
+        article.section
+          h1 Component Examples
+
+        article.section
+          h1 Dev Tools
+
+        article.section
+          h1 Mobile / MQ
+
+        article.section
+          h1 Re-ordering Elements
+
+        article.section
+          h1 Overlapping Elements
+
+        article.section
+          h1 Dealing with Unkown Number of items
+
+        article.section
+          h1 Dense block-fitting Grid
+
+        article.section
+          h1 Full Bleed Page Layout
+
+        article.section
+          h1 CSS Grid is huge
+
+        article.section
+          h1 CSS Grid is the future!
+
+        article.section
+          h1 It's well worth learning
+
+        article.section
+          h1 Thanks!
+          p.sub Questions?
+      script(src='prism.js' data-manual)
+      script(src='./custom-highlight.js')
