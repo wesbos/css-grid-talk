@@ -8,24 +8,23 @@ const download = function(callback) {
     const fileName = `${uri.split('/')[3]}.${extension}`;
     console.log('downloading...', fileName);
     request(uri)
-      .pipe(fs.createWriteStream('images/screenshots/' + fileName))
+      .pipe(fs.createWriteStream(`images/screenshots/${  fileName}`))
       .on('close', callback);
   });
 };
 
 var images = [
-  'http://wes.io/nslE/content',
-  'http://wes.io/nsg8/content',
-  'http://wes.io/nsi4/content',
-  'http://wes.io/nsbK/content',
-  'http://wes.io/nsbz/content',
-  'http://wes.io/ntkI/content',
-  'http://wes.io/nuqs/content',
-  'http://wes.io/nunX/contnet',
-  'http://wes.io/nteh/content',
-  'http://wes.io/nuda/content',
-  'http://wes.io/nyqR/content',
-  'http://wes.io/ntqa/content',
+  'http://wes.io/t0jF/content',
+  'http://wes.io/t1UT/content',
+  'http://wes.io/t14p/content',
+  'http://wes.io/t14p/content',
+  'http://wes.io/t14p/content',
+  'http://wes.io/t1f8/content',
+  'http://wes.io/t4Kv/content',
+  'http://wes.io/t2oA/content',
+  'http://wes.io/t2wZ/content',
+  'http://wes.io/t4kr/content',
+  'http://wes.io/t3DW/content',
 ];
 
 function start() {

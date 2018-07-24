@@ -18,49 +18,6 @@ html {
 }
 
 // Mixin
-random(min,max)
-  return floor(math(0, 'random')*(max - min + 1) + min)
-
-
-body::after
-  position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
-  content: url(./images/1.jpg) url(./images/2.jpg) url(./images/3.jpg) url(./images/4.jpg) url(./images/5.jpg) url(./images/6.jpg) url(./images/7.jpg) url(./images/8.jpg) url(./images/9.jpg) url(./images/10.jpg) url(./images/11.jpg) url(./images/12.jpg) url(./images/13.jpg) url(./images/14.jpg) url(./images/15.jpg) url(./images/16.jpg) url(./images/17.jpg) url(./images/18.jpg) url(./images/19.jpg) url(./images/20.jpg) url(./images/21.jpg) url(./images/22.jpg) url(./images/23.jpg) url(./images/24.jpg) url(./images/25.jpg) url(./images/26.jpg) url(./images/27.jpg) url(./images/28.jpg) url(./images/29.jpg) url(./images/30.jpg) url(./images/31.jpg)
-.slides > article
-  padding 50px
-  padding 20px
-  &.plain
-    &:before, &:after
-      display none
-
-
-
-randomColor()
-  return rgb(random(0,255),random(0,255),random(0,255))
-
-combos = (#825854 #3de7e4) (#29519e #94eced) (#e26ab5 #1e4823) (#11feec #FF00E0) (#006C8D #006C8D) (#3a5c8e #eb821b) (#ca5723 #7d5794) (#6aa4e1 #ae5ceb) (#226443 #5e9ccd) (#6d6528 #3768f7) (#2decf5 #52aeea) (#d07dd7 #e1e34a) (#3456fd #14e839) (#f8078c #17156b)
-
-randomGradient()
-  n = random(1,13)
-  combo = combos[n]
-  return combo
-
-
-for num in 1...40
-  path = "images/"+ random(1,31)+".jpg"
-  combo = randomGradient();
-  .slides > article:nth-child(39n+{num})
-    &:before
-      background-image url(path)
-      content combo[1]
-    &:after
-      rando = randomColor()
-      background-image linear-gradient(random(0,360)deg, blue 0%, darken(blue,40%) 100%);
-
-      // background-image linear-gradient(random(0,360)deg, rando 0%, lighten(rando,10%) 100%);
-
-// .slides > article:nth-child(1n):after
-//     background-image: linear-gradient(-173deg, #007EFF 0%, #6DD7BA 51%);
-
 h1,h2,h3,h4,h5,h6
   color white
   font-weight 900
