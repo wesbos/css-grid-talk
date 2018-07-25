@@ -5,7 +5,7 @@ html
       meta(charset='utf-8')
       script(src='slides.js')
       link(href="https://fonts.googleapis.com/css?family=Gravitas+One|Yeseva+One" rel="stylesheet")
-      link(rel="stylesheet", href="https://rawgit.com/wesbos/css-grid/master/assets/style.css")
+      link(rel="stylesheet", href="./grid-styles.css")
       link(rel="stylesheet", href="./prism.css")
 
       link(href='styles.css'  rel='stylesheet' type='text/css')
@@ -15,12 +15,10 @@ html
         style { display: inline-grid !important; }
     body
       section.slides.layout-regular.template-default
-        article.first
-          h1: mark CSS GRID
-          p.sub: small Cool Eh
 
         article
-          h1: mark I&apos;m Wes Bos
+        article
+          h1: mark Hi, I&apos;m Wes Bos
           p: br
           p.sub
             img(src="images/canada-flag.png")
@@ -30,6 +28,26 @@ html
             img(src="images/canada-flag.png")
             img(src="images/canada-flag.png")
 
+        article.first
+          h1: mark JS Guy Giving a CSS Talk at a PHP Conf
+          p.sub wat
+
+        article.first
+          h1: mark How to slap together a WordPress theme
+
+        article.first
+          h1: mark Top 10 Code Igniter Tips
+
+        article.first
+          h1: mark Editing files straight from the server
+          p.skew yolo updates
+
+        article.first
+          h1: mark Laravel.js
+
+        article.first
+          h1: mark CSS Grid
+
         article
           h2(style="font-size:60px;") These slides will be available shortly after this talk <br>I&apos;ll tweet the link out.
           img(src='images/Twitter_logo_white.png', width='300' style="margin:100px auto")
@@ -37,6 +55,8 @@ html
           h2
             a(href='http://twitter.com/wesbos', target='_blank') @wesbos
 
+        article
+          h1 I make Web Development Courses
         article
           a(href='https://ES6.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
             img.wide(src='https://ES6.io/images/es6-facebook-share.png')
@@ -52,6 +72,16 @@ html
           a(href='https://LearnNode.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
             img.wide(src='https://learnnode.com/images/NODE/node-facebook-share.jpg')
           a(href='https://LearnNode.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') LearnNode.com
+
+        article
+          a(href='https://JavaScript30.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+            img.wide(src='https://javascript30.com/images/JS3-social-share.png')
+          a(href='https://JavaScript30.com/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') JavaScript30.com
+
+        article
+          a(href='https://CSSGrid.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo')
+            img.wide(src='https://cssgrid.io/images/GRID-social-share.png')
+          a(href='https://CSSGrid.io/?utm_source=toolingtalk&utm_medium=link&utm_campaign=talkpromo') CSSGrid.io
 
         article
           img.high(src="https://pbs.twimg.com/media/DLTTKRoXUAEwuZR.jpg:large")
@@ -260,7 +290,7 @@ html
           p or grid-auto-flow
 
         article
-          h1.medium With Flexbox, you can change the Axis left-to-right (row) to top-to-bottom (column)
+          h1.medium With Flexbox, you can change the Axis from left-to-right (row) to top-to-bottom (column)
 
         article
           h1 CSS Grid doesn't have the ability to change the axis
@@ -362,10 +392,10 @@ html
             .item 6
 
         article
-          h1 Percentages
+          h1 Not for adding up to 100%
 
         article
-          h1 Not for adding up to 100%
+          h1 80% + 20% + 20px = ???
           p Remember the days before border-box?
 
         article.side
@@ -385,9 +415,6 @@ html
             .item 5
             .item 6
 
-        article
-          h1 80% + 20% + 20px = ???
-          p Remember the days before border-box?
 
         article
           h1 Solution: Fractional Units
@@ -412,7 +439,7 @@ html
             .item 6
 
         article
-          h2.skew The Browser will first dedicate space towards the things that need a specific amount room - existing content, fixed sized tracks and grid-gap. Then, the remaining space will be divided up in proportion - much like flex-grow.
+          h2(style="font-size:80px;").skew The Browser will first dedicate space towards the things that need a specific amount room - existing content, fixed sized tracks and grid-gap. Then, the remaining space will be divided up in proportion - much like flex-grow.
 
         article.side
           style.
@@ -540,7 +567,7 @@ html
               .item #{i}
 
         article
-          h1 In most cases, the best way to size grid items is to span multiple grid spots.
+          h1.medium In most cases, the best way to size grid items is to span multiple grid spots.
 
 
         article.side
@@ -605,7 +632,7 @@ html
           p.sub Quick Aside
 
         article.section
-          h2 Tracks are numbered by thir gutters, not the tracks
+          h2 Tracks are numbered by their gutters, not the tracks
           img.wide(src="./images/screenshots/t4Kv.png")
 
         article.side
@@ -705,9 +732,13 @@ html
               display: grid;
               grid-template-columns: repeat(auto-fill, 100px);
               border: 10px solid red;
-              overflow: auto;
-              resize: horizontal;
+              transition: all 1s;
+              width: 900px;
             }
+            .grid#{gridNum}:hover {
+              width: 300px;
+            }
+
 
           .grid(class="grid#{gridNum}")
             - var l = Array.from({ length: 20}, (x, i) => i + 1)
@@ -737,7 +768,7 @@ html
           p.sub Works with <code>auto-fit</code> and <code>auto-fill</code>
 
         article.section
-          h2(style="font-size: 95px"): code grid-templat-columns:<br>repeat(auto-fill, minmax(350px, 1fr))
+          h2(style="font-size: 95px"): code grid-template-columns:<br>repeat(auto-fill, minmax(350px, 1fr))
 
 
         article.side

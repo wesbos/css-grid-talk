@@ -36,7 +36,6 @@ background
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid #000;
   padding: 20px;
 }
 .slides > article.side {
