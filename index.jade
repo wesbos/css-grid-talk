@@ -17,7 +17,6 @@ html
       section.slides.layout-regular.template-default
 
         article
-        article
           h1: mark Hi, I&apos;m Wes Bos
           p: br
           p.sub
@@ -31,6 +30,24 @@ html
         article.first
           h1: mark JS Guy Giving a CSS Talk at a PHP Conf
           p.sub wat
+
+        article
+          img.high(src="./images/what1.jpg")
+
+        article
+          img.wide(src="./images/what2.jpg")
+
+        article
+          img.wide(src="./images/what3.jpg")
+
+        article
+          h1 Who invited this guy?
+
+        article
+          h1 Who invited all these Canadians?!
+
+        article
+          h1 Sorry..
 
         article.first
           h1: mark How to slap together a WordPress theme
@@ -1210,6 +1227,26 @@ html
             - each i in l
               .itm #{i}
 
+        article.side
+          - gridNum++;
+          h2: code align-self: end;
+          style.
+            .grid#{gridNum} {
+              display: grid;
+              grid-template-columns: repeat(3, 100px);
+              align-items: baseline;
+            }
+            .grid#{gridNum} .itm:nth-child(3) {
+              background: red;
+              align-self: end;
+            }
+
+
+          .alignment.grid(class="grid#{gridNum}")
+            - var l = Array.from({ length: 6}, (x, i) => i + 1)
+            - each i in l
+              .itm #{i}
+
         article.section
           h1 Whew!
           p.sub That is a lot!
@@ -1263,7 +1300,10 @@ html
           h1 It's well worth learning
 
         article.section
+          h1 Get at it!
+
+        article.section
           h1 Thanks!
-          p.sub Questions?
+          p.sub I have stickers!
       script(src='prism.js' data-manual)
       script(src='./custom-highlight.js')
